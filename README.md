@@ -15,11 +15,14 @@ Generic fitness app suggestions often fail to engage users because they don’t 
 
 ---
 
-
 ## Project Structure
 The repository is organized into the following directories and files:
 
+```markdown
+## Project Structure
+The repository is organized into the following directories and files:
 
+```
 HeartSteps Project
 │
 ├── data/
@@ -37,6 +40,8 @@ HeartSteps Project
 │
 ├── .gitignore               # Specifies files to ignore in version control
 └── README.md                # Project documentation (this file)
+```
+```
 
 
 ---
