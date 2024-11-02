@@ -45,10 +45,25 @@ The HeartSteps V1 study provided four main datasets:
 - **users.csv**: Demographic details of the 37 participants, including gender, age, and parental status.
 
 ### 2. **Data Cleaning**
-We followed the PCS (Predictability, Computability, Stability) framework to ensure data quality:
-- **Handling Missing Data**: Removed columns with more than 40% missing values and imputed missing values using median or mode.
-- **Feature Alignment**: Matched step count data with suggestion times and created features like step count differences before and after suggestions.
-- **Stability Checks**: Introduced random missing data to validate model performance.
+
+The data cleaning process was guided by the PCS (Predictability, Computability, Stability) framework to ensure high-quality, reliable data for analysis and modeling.
+
+#### 2.1. Predictability
+- **Handling Missing Values**: We began by removing columns with more than 40% missing data, as these columns would introduce significant bias and reduce the predictive power of the dataset.
+- **Imputation**: For columns with less than 40% missing data, we employed different imputation strategies:
+  - **Numerical Data**: Missing values were replaced using the median to minimize the impact of outliers.
+  - **Categorical Data**: Missing values were filled using the mode, ensuring that the most frequent category was used.
+- These steps were critical to maintain the dataset’s integrity and predictive capability.
+
+#### 2.2. Computability
+- **Feature Extraction**: Time-based features were created from the raw data to support more effective modeling and analysis.
+- **Data Alignment**: Using the `sugg.select.utime` field from the `suggestions.csv` dataset, we synchronized the step count data from both `jbsteps.csv` and `gfsteps.csv` with the corresponding suggestion times.
+- **Step Calculations**: We calculated the total number of steps within specific time windows, such as 30 minutes before and 30 minutes after each notification. This allowed us to measure the immediate impact of personalized suggestions on user activity.
+
+#### 2.3. Stability
+- **Stress Testing the Pipeline**: To ensure robustness, we stress-tested the data preprocessing pipeline by randomly introducing missing data and reassessing model performance.
+- **Outcome Validation**: By doing this, we confirmed that minor variations in the dataset (like additional missing records) did not substantially affect our analytical results. This step reinforced the stability and reliability of our data processing approach.
+
 
 ### 3. **Data Splits**
 The data was split into training (80%) and test (20%) sets while preserving the time-series nature to simulate real-world predictions.
