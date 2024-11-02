@@ -18,6 +18,25 @@ Generic fitness app suggestions often fail to engage users because they don’t 
 ## Project Structure
 The repository is organized into the following directories and files:
 
+HeartSteps Project
+│
+├── data/
+│   ├── gfsteps.csv          # Step counts from Google Fit trackers
+│   ├── jbsteps.csv          # Step counts from Jawbone trackers
+│   ├── suggestions.csv      # Data on the personalized suggestions sent to users
+│   └── users.csv            # Demographic details of the participants
+│
+├── dslc_documentation/
+│   ├── 01_cleaning.ipynb    # Data cleaning and preprocessing
+│   ├── 02_eda.ipynb         # Exploratory Data Analysis (EDA)
+│   ├── 03_clustering.ipynb  # User clustering for segmentation
+│   └── functions/
+│       └── inference_fns.py # Statistical inference functions for hypothesis testing
+│
+├── .gitignore               # Specifies files to ignore in version control
+└── README.md                # Project documentation (this file)
+
+
 
 
 
